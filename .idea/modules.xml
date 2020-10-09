@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SOEN387_A1.iml" filepath="$PROJECT_DIR$/SOEN387_A1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BasicServlet.iml" filepath="$PROJECT_DIR$/BasicServlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../BusinessLayer/BusinessLayer.iml" filepath="$PROJECT_DIR$/../BusinessLayer/BusinessLayer.iml" />
     </modules>
   </component>
 </project>

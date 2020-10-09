@@ -11,6 +11,6 @@
     <title>INDEX</title>
 </head>
 <body>
-
+<% %>
 </body>
 </html>
