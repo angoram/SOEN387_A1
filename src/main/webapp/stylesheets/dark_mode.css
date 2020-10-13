@@ -1,0 +1,41 @@
+#title{
+    color:white;
+}
+body{
+    background-color:midnightblue;
+}
+#top_bar{
+    background-color:navy;
+}
+#send_message_area{
+    background-color:navy;
+}
+#welcome_message{
+    color:white;
+}
+input[type="text"],textarea{
+    background-color:black;
+    color:white;
+}
+input[type="textarea"],textarea{
+    background-color:black;
+    color:white;
+}
+input[type="submit"]{
+    background-color:black;
+    color:white;
+}
+#refresh_btn{
+    background-color:grey;
+    color:white;
+}
+#refresh_btn:hover{
+    background-color:black;
+}
+
+td{
+    color:white;
+}
+#chat_window{
+    border-color:black;
+}

@@ -4,16 +4,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: koran
-  Date: 10/8/2020
-  Time: 6:00 PM
+  Date: 10/9/2020
+  Time: 1:01 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-    <meta name="hello">
-    <title>INDEX</title>
+    <title>Error</title>
 </head>
 <body>
-    <a href="chat.jsp">Click here to go to chat</a>
+<p>You need the proper referer link to access that page.</p>
 </body>
 </html>

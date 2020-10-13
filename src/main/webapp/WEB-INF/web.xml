@@ -19,6 +19,22 @@
         <servlet-name>ChatLogDeleter</servlet-name>
         <url-pattern>/ChatLogDeleter</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UsernameSetter</servlet-name>
+        <servlet-class>UsernameSetter</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsernameSetter</servlet-name>
+        <url-pattern>/UsernameSetter</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ThemeSwitcher</servlet-name>
+        <servlet-class>ThemeSwitcher</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ThemeSwitcher</servlet-name>
+        <url-pattern>/ThemeSwitcher</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
