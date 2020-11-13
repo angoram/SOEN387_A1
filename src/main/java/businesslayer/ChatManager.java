@@ -9,9 +9,10 @@ import java.util.Date;
  */
 public class ChatManager {
     private static ArrayList<Message> messages = new ArrayList<Message>();
+    private static int currentAttachmentID = 0;
 
-    public static void postMessage(String _userName, String _message){
-        Message message = new Message(_userName,_message,new Date(System.currentTimeMillis()));
+    public static void postMessage(String _userName, String _message, String _attachmentID){
+        Message message = new Message(_userName,_message,_attachmentID,new Date(System.currentTimeMillis()));
         messages.add(message);
     }
     public static void clearChat(Date _d1, Date _d2){
@@ -47,6 +48,9 @@ public class ChatManager {
             }
         }
         return messageList;
+    }
+    public static int getNextAttachmentID(){
+        return currentAttachmentID++;
     }
 
 }

@@ -45,7 +45,9 @@
                         for(Message m : ChatManager.listMessages(null,null)) {
                             rows += "<tr class=\"chat_log_block\">";
                                 rows += "<td class=\"user\"><p>" + m.getPostedBy()+"</p></td>";
-                                rows += "<td class=\"message\">" + m.getMessageContent() + "</td>";
+                                rows += "<td class=\"message\">" + m.getMessageContent() + "\n" +
+                                        "<a href='MessagePasser?filename=" + m.getAttachmentFilePath() +"'><img src='" + m.getAttachmentFilePath() + "' width='200' height='200'></a>" +
+                                        "</td>";
                                 rows += "<td class=\"date\">" + m.getDatePosted() + "</td>";
                             rows += "</tr>";
                         }

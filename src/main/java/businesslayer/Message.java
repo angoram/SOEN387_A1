@@ -6,11 +6,15 @@ public class Message {
     private String postedBy;
     private String messageContent;
     private Date datePosted;
-    public Message(String _postedBy, String _messageContent, Date _datePosted){
+    private String attachmentFileName;
+    public Message(String _postedBy, String _messageContent, String _attachmentFileName, Date _datePosted){
         datePosted = _datePosted;
         messageContent = _messageContent;
         postedBy = _postedBy;
+        attachmentFileName = _attachmentFileName;
+
     }
+    public String getAttachmentFilePath() { return attachmentFileName; }
     public String getPostedBy(){
         return postedBy;
     }
