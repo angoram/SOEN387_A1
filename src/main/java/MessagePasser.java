@@ -1,7 +1,7 @@
 import businesslayer.ChatManager;
 import businesslayer.Message;
 import businesslayer.Utilities;
-import sun.misc.IOUtils;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.InputStream;
+import org.apache.commons.io.IOUtils;
 
 
 
@@ -61,8 +62,8 @@ public class MessagePasser extends HttpServlet {
         response.setHeader("Cache-Control", "no-cache");
         response.setHeader("Expires", "-1");
         int i;
-        while((i = ChatManager.getAttachmentBytes(Integer.parseInt(request.getParameter("messageID"))).read()) > -1) {
-            response.getOutputStream().write(i);
-        }
+        InputStream is = ChatManager.getAttachmentBytes(Integer.parseInt(request.getParameter("messageID")));
+        byte[] bytes = IOUtils.toByteArray(is);
+        response.getOutputStream().write(bytes);
     }
 }

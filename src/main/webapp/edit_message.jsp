@@ -20,8 +20,9 @@
         }
     %>
     <h1>Edit message</h1>
-    <form method="post" action="MessageEditor?messageID=<%=request.getParameter("messageID")%>">
-        <input type="textarea"  value="<%=getMessage(request.getParameter("messageID"))%>" width="100" height="100" name="edited-message">
+    <form method="post" action="MessageEditor?messageID=<%=request.getParameter("messageID")%>" enctype="multipart/form-data">
+        <input type="textarea"  value="<%=getMessage(request.getParameter("messageID"))%>" name="edited-message">
+        <input type="file" name="file">
         <input type="submit" value="Set">
     </form>
 </body>

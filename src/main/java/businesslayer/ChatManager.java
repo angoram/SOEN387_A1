@@ -1,9 +1,5 @@
 package businesslayer;
 
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -20,8 +16,11 @@ public class ChatManager {
     public static ArrayList<Message> messages = new ArrayList<Message>();
     public static ArrayList<Message> messagesToShow = new ArrayList<>();
     private static int currentMessageID = 0;
-    public static String sampleUsername = "Andrew";
-    public static String samplePasswordHashed = "oc8mlmPAqmVDbcVZFHRRzjNEDDfU7yl+BOvuQuMtPAo="; // the message digest of "Kor"
+    public static HashMap<String,String> users = new HashMap<String,String>(){{
+        put("Andrew","oc8mlmPAqmVDbcVZFHRRzjNEDDfU7yl+BOvuQuMtPAo=");// the message digest of "Kor"
+        put("Soen","JdrJW49ZUEa8Q1E5Y2sOLx/24OoxpU88GefnJvuYc4s="); // Message digest of "387"
+    }};
+
 
 
     public static void postMessage(String _userName, String _message, InputStream _attachmentBytes){
@@ -126,7 +125,7 @@ public class ChatManager {
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         byte[] hash = digest.digest(plaintext.getBytes(StandardCharsets.UTF_8));
         String hashString = Base64.getEncoder().encodeToString(hash);
-        System.out.println(hashString);
+
         return hashString;
     }
     public static InputStream getAttachmentBytes(int messageID){

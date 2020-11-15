@@ -1,5 +1,7 @@
 package businesslayer;
 
+import jdk.internal.util.xml.impl.Input;
+
 import java.io.InputStream;
 import java.util.Date;
 
@@ -34,6 +36,9 @@ public class Message implements Comparable<Message>{
     }
     public void setMessageContent(String m){
         messageContent = m;
+    }
+    public void setAttachmentBytes(InputStream stream){
+        attachmentBytes = stream;
     }
     public boolean isEdited(){
         return edited;

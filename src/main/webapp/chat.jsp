@@ -5,6 +5,7 @@
 <%@ page import="java.awt.image.BufferedImage" %>
 <%@ page import="javax.imageio.ImageIO" %>
 <%@ page import="java.io.File" %>
+<%@ page import="org.apache.commons.io.IOUtils" %>
 <!DOCTYPE html>
 <%--
 
@@ -40,6 +41,7 @@
                         }
                     %>
                     <%=printWelcomeMessage((String) request.getSession().getAttribute("username"))%>
+                    <a href="LoginServlet">Sign out</a>
                 </span>
             </div>
             <a href="chat.jsp?filter=false" id="refresh_btn" >🗘</a>
@@ -66,7 +68,7 @@
                     }
                 %>
                 <%!
-                    String getMessages(String username, String filter) throws IOException {
+                    String getMessages(ServletContext app, String username, String filter) throws IOException {
                         ArrayList<Message> list = null;
                         if(filter.equals("true")){
                             System.out.println("Showing FILTERED messages");
@@ -78,9 +80,9 @@
                             list = ChatManager.messages;
                             }
                             String rows = "";
-                            int imageName = 0;
+
                             for(Message m : list) {
-                                imageName++;
+
 
 
                                 rows += "<tr class=\"chat_log_block\">";
@@ -90,19 +92,19 @@
                                 rows += "\n";
                                 if (m.getPostedBy().equals(username)) {
                                     rows += "<a href='edit_message.jsp?messageID=" + m.getMessageID() + "'>Edit</a>";
+                                    rows += "<span> | </span>";
                                     rows += "<a href='MessageDeleter?messageID=" + m.getMessageID() + "'>Delete</a>";
                                 }
-                                BufferedImage image = null;
+                               byte[] bytes = null;
                                 if (m.getAttachmentBytes() != null) {
                                     try {
-                                        image = ImageIO.read(m.getAttachmentBytes());
-                                        System.out.println(image);
+                                        bytes = IOUtils.toByteArray(m.getAttachmentBytes());
                                     } catch (IOException e) {
                                         System.out.println(e);
                                     }
-                                    if (image != null) {
-                                        ImageIO.write(image, "png", new File(imageName + ".png"));
-                                        rows += "<a href='MessagePasser?messageID=" + m.getMessageID() + "'><img src='" + imageName + ".png" + "' width='200' height='200'></a>" +
+                                    if (bytes != null) {
+                                        String path = "data:image/png;base64, " + bytes;
+                                        rows += "<a href='MessagePasser?messageID=" + m.getMessageID() + "'><img src='" + path + "' width='100' height='100'></a>" +
                                                 "</td>";
                                     }
                                 }
@@ -112,15 +114,15 @@
                             return rows;
                         }
                     %>
-                    <%=getMessages((String)request.getSession().getAttribute("username"),request.getParameter("filter"))%>
+                    <%=getMessages(application,(String)request.getSession().getAttribute("username"),request.getParameter("filter"))%>
                 }
 
             </table>
         </div>
         <div id="send_message_area">
             <form action="MessagePasser" method="post" enctype="multipart/form-data">
-                <input type="textarea" id="message_to_send" name="message" placeholder="Send message.." width="140" height="140" rows="5" cols = "40">
-                <input type="file" name="file"/>
+                <input type="textarea" id="message_to_send" name="message" placeholder="Send message.." width="100px" height="100px" rows="5" cols = "30">
+                <input type="file" name="file" width="50px"/>
                 <input type="submit" name="submit" id="send_message_btn" value="↩">
             </form>
         </div>
