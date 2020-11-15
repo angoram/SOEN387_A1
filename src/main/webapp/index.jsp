@@ -14,10 +14,9 @@
     <title>INDEX</title>
 </head>
 <body>
-    <a href="http://localhost:9001/BasicServlet_war/chat.jsp">Click here to go to chat</a>
-<%--    <%--%>
-<%--        String redirectURL = "http://localhost:9001/BasicServlet_war/chat.jsp";--%>
-<%--        response.sendRedirect(redirectURL);--%>
-<%--    %>--%>
+    <%
+        String redirectURL = "http://localhost:9001/BasicServlet_war/login.jsp";
+        response.sendRedirect(redirectURL);
+    %>
 </body>
 </html>

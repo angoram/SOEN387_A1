@@ -11,6 +11,6 @@ public class UsernameSetter extends HttpServlet {
         String usernameSet = request.getParameter("username");
         String parsedUsername = usernameSet==null || usernameSet==""?"Anonymous":usernameSet;
         request.getSession().setAttribute("username",parsedUsername);
-        response.sendRedirect("chat.jsp");
+        response.sendRedirect("chat.jsp?filter=false");
     }
 }

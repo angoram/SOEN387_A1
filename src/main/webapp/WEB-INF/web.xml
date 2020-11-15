@@ -11,14 +11,7 @@
         <servlet-name>MessagePasser</servlet-name>
         <url-pattern>/MessagePasser</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>ChatLogDeleter</servlet-name>
-        <servlet-class>ChatLogDeleter</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ChatLogDeleter</servlet-name>
-        <url-pattern>/ChatLogDeleter</url-pattern>
-    </servlet-mapping>
+
     <servlet>
         <servlet-name>UsernameSetter</servlet-name>
         <servlet-class>UsernameSetter</servlet-class>
@@ -28,15 +21,41 @@
         <url-pattern>/UsernameSetter</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>ThemeSwitcher</servlet-name>
-        <servlet-class>ThemeSwitcher</servlet-class>
+        <servlet-name>Searcher</servlet-name>
+        <servlet-class>Searcher</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MessageDeleter</servlet-name>
+        <servlet-class>MessageDeleter</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ThemeSwitcher</servlet-name>
-        <url-pattern>/ThemeSwitcher</url-pattern>
+        <servlet-name>MessageDeleter</servlet-name>
+        <url-pattern>/MessageDeleter</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>MessageEditor</servlet-name>
+        <servlet-class>MessageEditor</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MessageEditor</servlet-name>
+        <url-pattern>/MessageEditor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Searcher</servlet-name>
+        <url-pattern>/Searcher</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+
+
 
 </web-app>
