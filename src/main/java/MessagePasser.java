@@ -1,7 +1,4 @@
 import businesslayer.ChatManager;
-import businesslayer.Message;
-import businesslayer.Utilities;
-
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -58,12 +55,10 @@ public class MessagePasser extends HttpServlet {
 
         String ext = "png";
         response.setContentType("image/" + ext);
-        response.setHeader("Content-disposition", "attachment; filename=\""+"image.png\"");
-        response.setHeader("Cache-Control", "no-cache");
-        response.setHeader("Expires", "-1");
-        int i;
+        response.setHeader("Content-disposition", "attachment; filename=attachment.png");
         InputStream is = ChatManager.getAttachmentBytes(Integer.parseInt(request.getParameter("messageID")));
         byte[] bytes = IOUtils.toByteArray(is);
+        System.out.println(bytes);
         response.getOutputStream().write(bytes);
     }
 }

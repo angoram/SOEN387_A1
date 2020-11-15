@@ -103,7 +103,7 @@
                                         System.out.println(e);
                                     }
                                     if (bytes != null) {
-                                        String path = "data:image/png;base64, " + bytes;
+                                        String path = "data:image/png;base64," + bytes;
                                         rows += "<a href='MessagePasser?messageID=" + m.getMessageID() + "'><img src='" + path + "' width='100' height='100'></a>" +
                                                 "</td>";
                                     }
@@ -122,7 +122,7 @@
         <div id="send_message_area">
             <form action="MessagePasser" method="post" enctype="multipart/form-data">
                 <input type="textarea" id="message_to_send" name="message" placeholder="Send message.." width="100px" height="100px" rows="5" cols = "30">
-                <input type="file" name="file" width="50px"/>
+                <input type="file" name="file"/>
                 <input type="submit" name="submit" id="send_message_btn" value="↩">
             </form>
         </div>
